@@ -6,6 +6,7 @@ import ProductCard from "./ProductCard";
 import Link from "next/link";
 import  Filter  from "./Filter";
 
+// Temporary
 const products: ProductsType = [
   {
     id: 1,
