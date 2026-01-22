@@ -124,7 +124,7 @@ const CartPage = () => {
               <div className="flex items-center justify-between" key={item.id}>
                 {/* Image and details */}
                 <div className="flex gap-8">
-                    {/* Image */}
+                  {/* Image */}
 
                   <div className="relative w-32 h-32 bg-gray-50 rounded-lg overflow-hidden">
                     <Image
@@ -137,10 +137,19 @@ const CartPage = () => {
                   {/* Item details */}
                   <div className="flex flex-col justify-between">
                     <div className="flex flex-col gap-1">
-                        <p className="text-sm font-medium"> {item.name}</p>
-                        <p className="text-xs text-gray-500"> Quantity: {item.quantity}</p>
-                        <p className="text-xs text-gray-500"> Size: {item.selectedSize}</p>
-                        <p className="text-xs text-gray-500"> Color: {item.selectedColor}</p>
+                      <p className="text-sm font-medium"> {item.name}</p>
+                      <p className="text-xs text-gray-500">
+                        {" "}
+                        Quantity: {item.quantity}
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        {" "}
+                        Size: {item.selectedSize}
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        {" "}
+                        Color: {item.selectedColor}
+                      </p>
                     </div>
                     <p className="font-medium">${item.price.toFixed(2)}</p>
                   </div>
@@ -153,7 +162,7 @@ const CartPage = () => {
               </div>
             ))
           ) : activeStep === 2 ? (
-            <Shippingform />
+            <Shippingform setshippingForm = {setshippingForm} />
           ) : activeStep === 3 && shippingForm ? (
             <PaymentForm />
           ) : (
