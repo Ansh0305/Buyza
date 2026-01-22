@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ShippingFormInputs, shippingFormSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,10 +6,10 @@ import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-const Shippingform = ({
-  setshippingForm,
+const ShippingForm = ({
+  setShippingForm,
 }: {
-  setshippingForm: (data: ShippingFormInputs) => void;
+  setShippingForm: (data: ShippingFormInputs) => void;
 }) => {
   const {
     register,
@@ -22,8 +22,8 @@ const Shippingform = ({
   const router = useRouter();
 
   const handleShippingForm: SubmitHandler<ShippingFormInputs> = (data) => {
-    setshippingForm(data);
-    router.push("/cart?step=3", {scroll: false})
+    setShippingForm(data);
+    router.push("/cart?step=3", { scroll: false });
   };
 
   return (
@@ -136,4 +136,4 @@ const Shippingform = ({
   );
 };
 
-export default Shippingform;
+export default ShippingForm;
