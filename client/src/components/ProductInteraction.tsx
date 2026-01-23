@@ -52,7 +52,26 @@ const ProductInteraction = ({
       </div>
 
       {/* Color */}
-      <div className="flex flex-col gap-2 text-sm"></div>
+      <div className="flex flex-col gap-2 text-sm">
+        <span className="text-gray-500">Color</span>
+
+        <div className="flex items-center gap-2">
+          {product.colors.map((color) => (
+            <div
+              className={`cursor-pointer border-1 p-[2px] ${
+                selectedColor === color ? "border-gray-300" : "border-white"
+              }`}
+              key={color}
+              onClick={() => handleTypeChange("color", color)}
+            >
+              <div
+                className={`w-6 h-6 `}
+                style={{backgroundColor: color}}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Quantity */}
       <div className="flex flex-col gap-2 text-sm"></div>
