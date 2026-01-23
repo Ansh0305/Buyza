@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
 import { Bell, Home } from "lucide-react";
-import ShoppingCartIcon from "./ShoppingCartIcon";
+import dynamic from "next/dynamic";
+
+const ShoppingCartIcon = dynamic(() => import("./ShoppingCartIcon"), {
+  ssr: false,
+});
 
 const NavBar = () => {
   return (
@@ -25,11 +31,12 @@ const NavBar = () => {
       <div className="flex items-center gap-4 md:gap-6">
         <SearchBar />
 
-        <Link href="/">
+        <Link href="/" aria-label="Home">
           <Home className="w-4 h-4 text-gray-600 hover:text-black transition" />
         </Link>
 
         <Bell className="w-4 h-4 text-gray-600 hover:text-black transition" />
+
         <ShoppingCartIcon />
 
         <Link
@@ -42,6 +49,5 @@ const NavBar = () => {
     </nav>
   );
 };
-
 
 export default NavBar;
