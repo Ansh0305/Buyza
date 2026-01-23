@@ -1,8 +1,11 @@
+import { CartStoreActionsType, CartStoreStateType } from "@/types";
 import { create } from "zustand";
 
-const useBear = create((set) => ({
+const useCartStore = create<CartStoreStateType & CartStoreActionsType>()((set) => ({
   cart: [],
-  addToCart: () => 
-  removeFromCart: () => 
-  clearCart: () => {}
+  addToCart: (product) => set((state) => ({ cart: [...state.cart, product] })),
+  removeFromCart: (product) => set((state) => ({ cart: state.cart.filter(p => p.id !== product.id), product })),
+  clearCart: () => set({cart: []}),
 }));
+
+export default useCartStore;
