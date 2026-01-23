@@ -52,7 +52,7 @@ const useCartStore = create<CartStoreStateType & CartStoreActionsType>()(
       storage: createJSONStorage(() => localStorage),
       onRehydrateStorage(state) {
           if (state) {
-            state.hasHydrated = true;
+            // state.hasHydrated = true;
           }
       },
     },
