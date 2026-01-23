@@ -1,7 +1,9 @@
 "use client";
 
 import { ProductType } from "@/types";
+import { Minus, Plus } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 const ProductInteraction = ({
   product,
@@ -16,6 +18,7 @@ const ProductInteraction = ({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [quantity, setQuantity] = useState(1)
 
   const handleTypeChange = (type:string, value:string) => {
       const params = new URLSearchParams(searchParams.toString())
@@ -64,17 +67,28 @@ const ProductInteraction = ({
               key={color}
               onClick={() => handleTypeChange("color", color)}
             >
-              <div
-                className={`w-6 h-6 `}
-                style={{backgroundColor: color}}
-              />
+              <div className={`w-6 h-6 `} style={{ backgroundColor: color }} />
             </div>
           ))}
         </div>
       </div>
 
       {/* Quantity */}
-      <div className="flex flex-col gap-2 text-sm"></div>
+      <div className="flex flex-col gap-2 text-sm">
+        <span className="text-gray-500">Quantity</span>
+        <div className="flex items-center gap-2">
+
+          <button className="cursor-pointer border-1 border-gray-300 p-1">
+            <Minus className="w-4 h-4"/>
+          </button>
+
+          <span>{quantity}</span>
+
+          <button className="cursor-pointer border-1 border-gray-300 p-1">
+            <Plus className="w-4 h-4"/>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
