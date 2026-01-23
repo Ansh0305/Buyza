@@ -50,7 +50,11 @@ const ProductPage = async ({
         <p className="text-gray-500">{product.description}</p>
         <h2 className="text-2xl font-semibold">${product.price.toFixed(2)}</h2>
 
-        <ProductInteraction/>
+        <ProductInteraction
+          product={product}
+          selectedSize={selectedSize}
+          selectedColor={selectedColor}
+        />
 
         {/* CARD INFO */}
         <div className="flex items-center gap-2 mt-4">
@@ -79,11 +83,18 @@ const ProductPage = async ({
 
         <p className="text-gray-500 text-xs">
           By clicking Pay Now, you agree to our{" "}
-          <span className="underline hover:text-black cursor-pointer">Terms & Conditions</span>{" "}
-          <span className="underline hover:text-black cursor-pointer">Privacy Policy</span>.
-          You authorize us to charge your selected payment method for total
-          amount shown. All sales are subject to out return and {" "}
-          <span className="underline hover:text-black cursor-pointer">Refund Policy</span>.
+          <span className="underline hover:text-black cursor-pointer">
+            Terms & Conditions
+          </span>{" "}
+          <span className="underline hover:text-black cursor-pointer">
+            Privacy Policy
+          </span>
+          . You authorize us to charge your selected payment method for total
+          amount shown. All sales are subject to out return and{" "}
+          <span className="underline hover:text-black cursor-pointer">
+            Refund Policy
+          </span>
+          .
         </p>
       </div>
     </div>
