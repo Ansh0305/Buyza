@@ -11,7 +11,8 @@ const Filter = () => {
         const handleFilter = (value: string) => {
           const params = new URLSearchParams(searchParams);
           params.set("sort", value);
-          router.push(`${pathname}?${params.toString()}` , {scroll: false});
+          router.push(`/products?${params.toString()}`, { scroll: false });
+
         };
 
   return (
