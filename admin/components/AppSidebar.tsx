@@ -1,5 +1,5 @@
-import { Home, Inbox, Calendar, Search, Settings, User2, ChevronUp } from "lucide-react"
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "./ui/sidebar"
+import { Home, Inbox, Calendar, Search, Settings, User2, ChevronUp, Plus } from "lucide-react"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "./ui/sidebar"
 import Link from "next/link";
 import Image from "next/image";
 import { DropdownMenu } from "./ui/dropdown-menu";
@@ -36,8 +36,8 @@ const items = [
 
 const AppSidebar = () => {
   return (
-    <Sidebar className="">
-      <SidebarHeader>
+    <Sidebar collapsible="icon">
+      <SidebarHeader className="py-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
@@ -50,7 +50,7 @@ const AppSidebar = () => {
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarSeparator/>
+      <SidebarSeparator />
 
       <SidebarContent>
         <SidebarGroup>
@@ -70,27 +70,36 @@ const AppSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Projects</SidebarGroupLabel>
+          <SidebarGroupAction>
+            <Plus /> <span className="sr-only">Add Project</span>
+          </SidebarGroupAction>
+          <SidebarGroupContent>
+            
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
 
       <SidebarFooter>
         <SidebarMenu>
-           <SidebarMenuItem>
-             <DropdownMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton>
-                    <User2/> UNKNOWN <ChevronUp className="ml-auto"/>
-                  </SidebarMenuButton>
+                <SidebarMenuButton>
+                  <User2 /> UNKNOWN <ChevronUp className="ml-auto" />
+                </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>Account</DropdownMenuItem>
                 <DropdownMenuItem>Settings</DropdownMenuItem>
                 <DropdownMenuItem>Sign out</DropdownMenuItem>
               </DropdownMenuContent>
-             </DropdownMenu>
-           </SidebarMenuItem>
+            </DropdownMenu>
+          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
-
     </Sidebar>
   );
 }
