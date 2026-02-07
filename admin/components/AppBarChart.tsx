@@ -48,4 +48,4 @@ const AppBarChart = () => {
   );
 };
 
-export default AppBarChart;
+export default AppBarChart; 
