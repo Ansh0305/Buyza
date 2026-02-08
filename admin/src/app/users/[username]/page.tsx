@@ -23,6 +23,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import EditUser from "@/components/EditUser";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const SingleUserPage = () => {
   return (
@@ -120,7 +121,7 @@ const SingleUserPage = () => {
                 <SheetTrigger asChild>
                   <Button>Edit User</Button>
                 </SheetTrigger>
-                <EditUser/>
+                <EditUser />
               </Sheet>
             </div>
             <div className="space-y-4 mt-4">
@@ -163,7 +164,18 @@ const SingleUserPage = () => {
         {/* RIGHT */}
         <div className="w-full xl:w-2/3 space-y-6">
           {/* User Card container */}
-          <div className="bg-primary-foreground p-4 rounded-lg">User Card</div>
+          <div className="bg-primary-foreground p-4 rounded-lg space-y-2">
+            <div className="flex items-center gap-2">
+              <Avatar className="size-12">
+                <AvatarImage src="https://github.com/Ansh0305.png" />
+                <AvatarFallback>J</AvatarFallback>
+              </Avatar>
+              <h1 className="text-xl font-semibold">Jonny</h1>
+            </div>
+            <p className="text-sm text-muted-foreground ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum illo, minima recusandae aliquid distinctio beatae rerum quas cupiditate sit autem nobis. Consequatur, amet.
+            </p>
+          </div>
           {/* Chart container */}
           <div className="bg-primary-foreground p-4 rounded-lg">Chart</div>
         </div>
