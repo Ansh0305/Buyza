@@ -20,7 +20,7 @@ const NavBar = () => {
   const {theme, setTheme} = useTheme()
   const {toggleSidebar} = useSidebar()
   return (
-    <nav className="p-4 flex items-center justify-between">
+    <nav className="p-4 flex items-center justify-between sticky top-0 bg-background z-10">
       {/* LEFT */}
       <SidebarTrigger/>
 
