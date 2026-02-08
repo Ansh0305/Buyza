@@ -13,9 +13,16 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+
+import {
+  Sheet,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import EditUser from "@/components/EditUser";
 
 const SingleUserPage = () => {
   return (
@@ -107,13 +114,21 @@ const SingleUserPage = () => {
           </div>
           {/* User Information container */}
           <div className="bg-primary-foreground p-4 rounded-lg">
-            <h1 className="text-xl font-semibold">User Information</h1>
+            <div className="flex items-center justify-between">
+              <h1 className="text-xl font-semibold">User Information</h1>
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button>Edit User</Button>
+                </SheetTrigger>
+                <EditUser/>
+              </Sheet>
+            </div>
             <div className="space-y-4 mt-4">
               <div className="flex flex-col gap-2 mb-8">
                 <p className="text-sm text-muted-foreground">
                   Profile Completion
                 </p>
-              <Progress value={73} />
+                <Progress value={73} />
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-bold">Username:</span>
@@ -136,7 +151,9 @@ const SingleUserPage = () => {
                 <Badge>Admin</Badge>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground mt-4">Joined on 2090.01.01</p>
+            <p className="text-sm text-muted-foreground mt-4">
+              Joined on 2090.01.01
+            </p>
           </div>
           {/* card List container */}
           <div className="bg-primary-foreground p-4 rounded-lg">
