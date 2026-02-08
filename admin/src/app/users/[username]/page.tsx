@@ -24,6 +24,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import EditUser from "@/components/EditUser";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import AppLineChart from "@/components/AppLineChart";
 
 const SingleUserPage = () => {
   return (
@@ -177,7 +178,9 @@ const SingleUserPage = () => {
             </p>
           </div>
           {/* Chart container */}
-          <div className="bg-primary-foreground p-4 rounded-lg">Chart</div>
+          <div className="bg-primary-foreground p-4 rounded-lg">
+            <AppLineChart/>
+          </div>
         </div>
       </div>
     </div>
