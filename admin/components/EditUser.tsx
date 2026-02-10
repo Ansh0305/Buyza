@@ -23,26 +23,26 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
 const formSchema = z.object({
-  username: z
+  fullname: z
     .string()
     .min(2, { message: "Username must be atleast 2 characters!" })
     .max(50),
 
   email: z.string().email({ message: "Invalid email address!" }),
   phone: z.string().min(10).max(15),
-  location: z.string().min(2),
-  role: z.enum(["admin", "user"]),
+  address: z.string().min(2),
+  state: z.string().min(2),
 });
 
 const EditUser = () => {
     const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
-        username: "Jonny",
+        fullname: "Jonny",
         email: "jonny@gmail.com",
         phone: "+911234567890",
-        location: "New Delhi, India",
-        role: "admin"
+        address: "123-bandra",
+        state: "Mumbai"
       },
     });
   return (
@@ -54,16 +54,14 @@ const EditUser = () => {
             <form action="" className="space-y-8">
               <FormField
                 control={form.control}
-                name="username"
+                name="fullname"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>Full Name</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
-                    <FormDescription>
-                      This is your public username.
-                    </FormDescription>
+                    <FormDescription>Enter your full name.</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -96,7 +94,7 @@ const EditUser = () => {
                       <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      Only admin can see your phone number.
+                      Only admin can see your phone number[optional].
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -105,15 +103,15 @@ const EditUser = () => {
 
               <FormField
                 control={form.control}
-                name="location"
+                name="address"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Location</FormLabel>
+                    <FormLabel>Address</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      This is your public location.
+                      Enter your address [optional].
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -122,30 +120,21 @@ const EditUser = () => {
 
               <FormField
                 control={form.control}
-                name="role"
+                name="state"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Role</FormLabel>
+                    <FormLabel>State</FormLabel>
                     <FormControl>
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Role" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectGroup>
-                            <SelectItem value="admin">Admin</SelectItem>
-                            <SelectItem value="user">User</SelectItem>
-                          </SelectGroup>
-                        </SelectContent>
-                      </Select>
+                      <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      Only verified users can be admin.
+                      Enter your state [optional].
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+
               <Button type="submit">Submit</Button>
             </form>
           </Form>
