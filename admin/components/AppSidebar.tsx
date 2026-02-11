@@ -8,6 +8,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collap
 import { Sheet, SheetTrigger } from "./ui/sheet";
 import EditUser from "./EditUser";
 import AddOrder from "./AddOrder";
+import AddUser from "./AddUser";
 
 
 const items = [
@@ -157,7 +158,7 @@ const AppSidebar = () => {
                         </Link>
                       </SidebarMenuButton>
                     </SheetTrigger>
-                    <EditUser />
+                    <AddUser />
                   </Sheet>
                 </SidebarMenuButton>
               </SidebarMenuItem>
