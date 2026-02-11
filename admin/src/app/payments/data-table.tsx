@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/table";
 import { DataTablePagination } from "@/components/DataTablePagination";
 import { useState } from "react";
+import { Trash2 } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -38,17 +39,25 @@ export function DataTable<TData, TValue>({
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel:getSortedRowModel(),
+    getSortedRowModel: getSortedRowModel(),
     onSortingChange: setSorting,
     onRowSelectionChange: setRowSelection,
     state: {
-        sorting,
-        rowSelection
-    }
+      sorting,
+      rowSelection,
+    },
   });
 
   return (
     <div className="overflow-hidden rounded-md border">
+      {Object.keys(rowSelection).length > 0 && (
+        <div className="flex justify-end">
+          <button className="flex items-center gap-2 bg-red-600 text-white px-2 py-1 text-sm rounded-md m-4 cursor-pointer">
+            <Trash2 className="w-4 h-4" />
+            Delete Payment(s)
+          </button>
+        </div>
+      )}
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
