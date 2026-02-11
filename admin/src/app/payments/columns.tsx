@@ -19,7 +19,7 @@ export type Payment = {
   id: string;
   amount: number;
   fullName: string;
-  userId: "string";
+  userId: string;
   email: string;
   status: "pending" | "processing" | "success" | "failed";
 };
