@@ -1,15 +1,15 @@
-import { Home, Inbox, Calendar, Search, Settings, User2, ChevronUp, Plus, Projector, ChevronDown, Shirt, User, ShoppingBasket } from "lucide-react"
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarSeparator } from "./ui/sidebar"
+import { Home, Inbox, Calendar, Search, Settings, User2, ChevronUp, Plus, Shirt, User, ShoppingBasket } from "lucide-react"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "./ui/sidebar"
 import Link from "next/link";
 import Image from "next/image";
 import { DropdownMenu } from "./ui/dropdown-menu";
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
+// import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { Sheet, SheetTrigger } from "./ui/sheet";
-import EditUser from "./EditUser";
 import AddOrder from "./AddOrder";
 import AddUser from "./AddUser";
 import AddCategory from "./AddCategory";
+import AddProduct from "./AddProduct";
 
 
 const items = [
@@ -107,7 +107,7 @@ const AppSidebar = () => {
                         </Link>
                       </SidebarMenuButton>
                     </SheetTrigger>
-                    <EditUser />
+                    <AddProduct />
                   </Sheet>
                 </SidebarMenuButton>
               </SidebarMenuItem>
