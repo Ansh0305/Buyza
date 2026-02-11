@@ -7,6 +7,7 @@ import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { Sheet, SheetTrigger } from "./ui/sheet";
 import EditUser from "./EditUser";
+import AddOrder from "./AddOrder";
 
 
 const items = [
@@ -192,7 +193,7 @@ const AppSidebar = () => {
                         </Link>
                       </SidebarMenuButton>
                     </SheetTrigger>
-                    <EditUser />
+                    <AddOrder/>
                   </Sheet>
                 </SidebarMenuButton>
               </SidebarMenuItem>
