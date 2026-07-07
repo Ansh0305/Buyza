@@ -1,15 +1,32 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 
 const app = new Hono()
 
-app.get('/health', (res) => {
-  return res.json({
+app.use("*", clerkMiddleware());
+
+app.get('/health', (context) => {
+  return context.json({
     status: "ok",
     uptime: process.uptime(),
     timestamp: Date.now(),
   })
 })
+
+app.get("/test", (context) => {
+  const { userId } = getAuth(context);
+
+  if (!userId) {
+    return context.json({
+      message: "You are not logged in.",
+    });
+  }
+
+  return context.json({
+    message: "Payment service is auth!",
+  });
+});
 
 const start = async () => {
   try {
