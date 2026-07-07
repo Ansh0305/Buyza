@@ -3,8 +3,8 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-app.get('/health', (c) => {
-  return c.json({
+app.get('/health', (res) => {
+  return res.json({
     status: "ok",
     uptime: process.uptime(),
     timestamp: Date.now(),
@@ -12,14 +12,14 @@ app.get('/health', (c) => {
 })
 
 const start = async () => {
-  try{
+  try {
     serve({
       fetch: app.fetch,
       port: Number(process.env.PORT) || 8002
     }, (info) => {
       console.log(`Listening on port ${info.port}`)
     })
-  } catch(error){
+  } catch (error) {
     console.log(error);
     process.exit(1);
   }
