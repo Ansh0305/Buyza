@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 import { Bell, Home } from "lucide-react";
 import dynamic from "next/dynamic";
 import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import ProfileButton from "./ProfileButton";
 
 const ShoppingCartIcon = dynamic(() => import("./ShoppingCartIcon"), {
   ssr: false,
@@ -50,7 +51,7 @@ const NavBar = () => {
           </SignUpButton> */}
         </Show>
         <Show when="signed-in">
-          <UserButton />
+          <ProfileButton/>
         </Show>
       </div>
     </nav>
