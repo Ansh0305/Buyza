@@ -5,6 +5,7 @@ import Image from "next/image";
 import SearchBar from "./SearchBar";
 import { Bell, Home } from "lucide-react";
 import dynamic from "next/dynamic";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
 const ShoppingCartIcon = dynamic(() => import("./ShoppingCartIcon"), {
   ssr: false,
@@ -20,11 +21,12 @@ const NavBar = () => {
           alt="Buyza"
           width={36}
           height={36}
-          className="w-6 h-6 md:w-9 md:h-9"
+          className="w-8 h-8 md:w-9 md:h-9 object-contain"
+          priority
         />
-        <p className="hidden md:block text-md font-medium tracking-wider">
-          Buyza.
-        </p>
+        <span className="hidden md:block text-xl font-bold tracking-wide">
+          Buyza<span className="text-orange-500">.</span>
+        </span>
       </Link>
 
       {/* Right */}
@@ -39,12 +41,17 @@ const NavBar = () => {
 
         <ShoppingCartIcon />
 
-        <Link
-          href="/login"
-          className="text-sm font-medium hover:text-black transition"
-        >
-          Sign in
-        </Link>
+        <Show when="signed-out">
+          <SignInButton />
+          {/* <SignUpButton>
+            <button className="bg-purple-700 text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+              Sign Up
+            </button>
+          </SignUpButton> */}
+        </Show>
+        <Show when="signed-in">
+          <UserButton />
+        </Show>
       </div>
     </nav>
   );

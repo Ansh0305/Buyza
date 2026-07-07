@@ -5,14 +5,17 @@ const Footer = () => {
   return (
     <div className='mt-16 flex flex-col items-cente gap-8 md:flex-row md:items-start md:justify-between md:gap-0 bg-gray-800 p-8 rounded-lg'>
       <div className="flex flex-col gap-4 items-center md:items-start">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
             alt="Buyza"
             width={36}
             height={36}
+            className="w-8 h-8 object-contain"
           />
-          <p className="hidden md:block text-md font-medium tracking-wider text-white">Buyza.</p>
+          <span className="hidden md:block text-xl font-bold tracking-wide text-white">
+            Buyza<span className="text-orange-400">.</span>
+          </span>
         </Link>
           <p className="text-sm text-gray-100"> &#169; Buyza</p>
           <p className="text-sm text-gray-100"> All rights reserved.</p>
