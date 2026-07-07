@@ -1,6 +1,8 @@
 import Fastify from "fastify";
+import { clerkPlugin } from "@clerk/fastify";
 
 const fastify = Fastify();  
+fastify.register(clerkPlugin);
 
 fastify.get("/health", (request, reply) => {
   return reply.status(200).send({
