@@ -1,9 +1,9 @@
 import Fastify from "fastify";
-import Clerk from "@clerk/fastify";
+import { clerkPlugin } from "@clerk/fastify";
 import { shouldBeUser } from "./middleware/authmiddleware";
 
 const fastify = Fastify();
-fastify.register(Clerk.clerkPlugin);
+fastify.register(clerkPlugin);
 
 fastify.get("/health", (request, reply) => {
   return reply.status(200).send({
