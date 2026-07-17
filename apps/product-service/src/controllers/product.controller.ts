@@ -33,7 +33,21 @@ export const createProduct = async (req: Request, res: Response) => {
 }
 
 export const updateProduct = async (req: Request, res: Response) => {
+    const {id} = req.params;
+    const { categorySlug, ...rest } = req.body;
 
+    const updateProduct = await prisma.product.update({
+        where: { id: Number(id)}, 
+        data: {
+            ...rest,
+            ...(categorySlug && {
+                category: {
+                    connect: { slug: categorySlug },
+                },
+            }),
+        },
+    });
+    return res.status(200).json(updateProduct);
 }
 
 export const deleteProduct = async (req: Request, res: Response) => {
