@@ -57,7 +57,7 @@ export const deleteProduct = async (req: Request, res: Response) => {
       where: { id: Number(id) },
     });
 
-    return res.status(200).json(deleteProduct);
+    return res.status(200).json(deletedProduct);
 }
 
 // All Products
