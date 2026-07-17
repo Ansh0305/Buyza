@@ -19,8 +19,8 @@ model Product {
   images           Json
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
-  categoryslug String
-  category Category @relation(fields: [categoryslug], references: [slug])
+  categorySlug String
+  category Category @relation(fields: [categorySlug], references: [slug])
 }
 
 model Category {
